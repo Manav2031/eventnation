@@ -7,7 +7,7 @@ export default function Email(){
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_665bv0c', 'template_by3jb2k', form.current, 'YLxNvOewmXsjtOdEn')
+    emailjs.sendForm('service_665bv0c', 'template_ibhwtnq', form.current, 'YLxNvOewmXsjtOdEn')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
