@@ -1,0 +1,88 @@
+/* Home.css */
+
+/* Navbar styling */
+.navbar-brand {
+    font-weight: bold;
+  }
+  
+  /* Carousel styling */
+  .carousel-inner {
+    max-width: 800px; /* Set your desired width */
+    margin: 0 auto; /* Center the carousel */
+  }
+  
+  .carousel-item {
+    position: relative;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: center;
+  }
+  
+  .carousel-caption h5 {
+    font-family: 'Castoro Titling', sans-serif;
+  }
+  
+  .carousel-caption p {
+    font-family: 'Dancing Script', cursive;
+  }
+  /* Carousel styling */
+#carouselExampleInterval {
+    max-width: 800px; /* Set your desired width */
+    margin: 0 auto; /* Center the carousel */
+    box-shadow: 0px 0px 7px 2px grey;
+  }
+  
+  /* Container styling */
+  .container {
+    margin-top: 4rem;
+  }
+  .container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .container p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .container p {
+    font-size: 1.2rem;
+  }
+  
+  /* Card styling */
+  .card {
+    border: none;
+    box-shadow: 0px 0px 7px 2px grey;
+  }
+  
+  .card-img {
+    height: 100%;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+  }
+  
+  

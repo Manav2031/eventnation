@@ -1,9 +1,20 @@
 import React from "react";
-import "../components/event-form.css";
+import "./event-form.css";
+import UniqueCode from "./UniqueCode";
+import ReactDOM from 'react-dom/client';
+function EventForm() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const name = event.target.elements.name.value;
+    const ticketType = event.target.elements.ticketType.value;
+    ReactDOM.render(
+      <UniqueCode name={name} ticketType={ticketType} />,
+      document.getElementById("ticket-container")
+    );
+  };
 
-function EventForm () {
-    return (
-        <form className="form-container">
+  return (
+    <form className="form-container">
           <div className="form-group">
     <label htmlFor="exampleInputName1">Name</label>
     <input type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
@@ -28,8 +39,7 @@ function EventForm () {
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-    )
-    }
-
+  );
+}
 
 export default EventForm;

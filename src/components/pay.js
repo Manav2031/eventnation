@@ -1,41 +1,41 @@
-import './pay.css';
-import CheckoutForm from './payements';
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import React, {useState,useEffect} from 'react';
+import StripeCheckout from 'react-stripe-checkout';
+import emailjs from '@emailjs/browser';
 
-const stripePromise = loadStripe("pk_test_51N7Lb8SCz50kShAtq2v8kWWIGi1iRWdkvhg8B1kiP8WUY6PIt2Sh471Kdwl1saCVBBBye4rRNVnU7o72JnzAq8IL00Kd23fIKE");
+export default function Pay() {
 
-function Pay() {
-  const [clientSecret, setClientSecret] = useState("");
+  const name = "Varad"
+  const email = "varadpundlik@gamail.com"
+  const onToken = (token) => {
+    console.log(token)
+  }
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:4242/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  const sendEmail = (event) => {
+    event.preventDefault()
 
-  const appearance = {
-    theme: 'flat',
+    emailjs.send('service_665bv0c', 'template_ibhwtnq', { name, email }, 'YLxNvOewmXsjtOdEn')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   };
-  const options = {
-    clientSecret,
-    appearance,
-  };
+  
 
   return (
-    <div className="App">
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
-    </div>);
-}
-
-export default Pay;
+    <div className='Pay'>
+      <StripeCheckout
+        token={onToken}
+        name='spaceCon Ticket '
+        currency='INR'
+        amount={1400}
+        closed={sendEmail.bind(this)}
+        allowRememberMe // "Remember Me"
+        stripeKey='pk_test_51N7Lb8SCz50kShAtq2v8kWWIGi1iRWdkvhg8B1kiP8WUY6PIt2Sh471Kdwl1saCVBBBye4rRNVnU7o72JnzAq8IL00Kd23fIKE'
+       >
+        <button className="btn btn-primary" onClick={sendEmail}>
+          Pay with card
+        </button>
+      </StripeCheckout>
+    </div>
+  );
+};

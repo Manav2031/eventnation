@@ -1,25 +1,23 @@
+import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Email from './components/email';
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import Home from './components/Home';
+import EventForm from './components/eventform';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 import Pay from './components/pay';
-import EventForm from "./components/eventform";
-
-
-
 function App() {
   return (
-    <div className="App">
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        {/* <Route path='/' element={<Home />} /> */}
-        <Route path='/email' element={<Email />} /> 
-        <Route path='/pay' element={<Pay />} />
-        <Route path='/eventform' element={<EventForm />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/events' element={<EventForm />} />
+        <Route exact path='/pay' element={<Pay />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
-    </div>
+    
   );
 }
 
