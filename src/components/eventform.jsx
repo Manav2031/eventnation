@@ -1,10 +1,11 @@
 import React from "react";
 import "./event-form.css";
-import UniqueCode from "./uniquecode";
+import UniqueCode from "./UniqueCode";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
-function EventForm() {
+function EventForm(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [ticketType, setTicketType] = useState("");
@@ -12,10 +13,23 @@ function EventForm() {
   const [price, setPrice] = useState(0);
   const [submitted, setSubmitted] = useState(false);
 
+  const navigate=useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    
+    const data={
+      name:name,
+      email:email,
+      status:"pending",
+      price:calculateTotalPrice()
+    }
+    props.onAdd(data)
+    navigate('/pay',{
+      state:{
+        key:data
+      }
+    })
   };
 
 
@@ -52,7 +66,7 @@ function EventForm() {
 
 
   const calculateTotalPrice = () => {
-    const totalPrice = price * parseInt(frequency, 10);
+     const totalPrice = price * parseInt(frequency, 10);
     return totalPrice.toFixed(2); // Format the price to two decimal places
   };
 
@@ -65,7 +79,8 @@ function EventForm() {
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={(event)=>{setSubmitted(true);
+      event.preventDefault();}}>
         <div className="form-group">
           <label htmlFor="exampleInputName1">Name</label>
           <input
@@ -141,11 +156,14 @@ function EventForm() {
        
 
 
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <button type="submit" className="btn btn-primary" >
+         Submit
         </button>
       </form>
       {submitted && <UniqueCode name={name} email={email} ticketType={ticketType} frequency={frequency} totalPrice={calculateTotalPrice()} />}
+      <button onClick={handleSubmit} className="btn btn-primary" >
+         proceed for payement
+        </button>   
     </div>
   );
 }

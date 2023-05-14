@@ -5,7 +5,7 @@ import "./eventDetails.css"
 
 export default function EventDetails() {
 
-    const shareUrl = 'http://localhost:3000';
+    const shareUrl = 'http://localhost:3000/event-details';
     const shareTitle = 'Join me at SpaceCon!';
     return (
         <div className="event-details">
@@ -61,7 +61,7 @@ export default function EventDetails() {
             <h2 align="center">Networking:</h2>
             <p align="center">SpaceCon provides a unique opportunity for attendees to network with industry leaders and peers. Whether you're looking for new business opportunities, career advice, or just want to connect with like-minded individuals, there will be plenty of chances to meet and mingle throughout the event.</p>
             <h2 align="center">Tickets:</h2>
-            <p> align="center"Tickets for SpaceCon are on sale now and can be purchased on our website. Early bird pricing is available until June 15th, so be sure to take advantage of the discount while it lasts!</p>
+            <p align="center">Tickets for SpaceCon are on sale now and can be purchased on our website. Early bird pricing is available until June 15th, so be sure to take advantage of the discount while it lasts!</p>
             <div className="text-center mt-4">
                 <h2>Ready to Book an Event?</h2>
                 <p>Explore our upcoming events and secure your spot now!</p>
