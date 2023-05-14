@@ -80,7 +80,7 @@ const HomePage = () => {
         <div className="text-center mt-4">
           <h2>Ready to Book an Event?</h2>
           <p>Explore our upcoming events and secure your spot now!</p>
-          <a href="/events" className="btn btn-primary">Browse Events</a>
+          <a href="/event-details" className="btn btn-primary">Browse Events</a>
         </div>
       </div>
     </div>

@@ -6,7 +6,15 @@ import EventForm from './components/eventform';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Pay from './components/pay';
+import EventDetails from './components/eventDetails';
+import { useState } from 'react';
+import EventBooking from './components/eventBooking';
 function App() {
+
+  const [booking, setBooking] = useState([{ id: 1, name: "John Doe", email: "johndoe@example.com", status:"Done",price:1000},
+  { id: 2, name: "Jane Doe", email: "janedoe@example.com" },
+  { id: 3, name: "Bob Smith", email: "bobsmith@example.com" },])
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -14,10 +22,12 @@ function App() {
         <Route exact path='/' element={<Home />} />
         <Route exact path='/events' element={<EventForm />} />
         <Route exact path='/pay' element={<Pay />} />
+        <Route exact path='/event-details' element={<EventDetails />} />
+        <Route exact path='/booking' element={<EventBooking bookings={booking} />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
-    
+
   );
 }
 
