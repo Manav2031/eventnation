@@ -55,6 +55,19 @@ export default function CheckoutForm() {
       return;
     }
 
+    const sendEmail = (e) => {
+      e.preventDefault();
+
+      emailjs.send('service_665bv0c', 'template_ibhwtnq', {
+        name:"",
+        user_emai:email
+      }, 'YLxNvOewmXsjtOdEn')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+  };
     setIsLoading(true);
 
     const { error } = await stripe.confirmPayment({
