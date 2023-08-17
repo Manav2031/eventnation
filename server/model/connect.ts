@@ -1,4 +1,7 @@
 import {Client} from 'pg'
+import dotenv from 'dotenv';
+
+dotenv.config({ path: './config.env' });
 
 const client=new Client({
     host: process.env.host,
