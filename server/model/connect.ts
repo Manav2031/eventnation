@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: './config.env' });
 
-const client=new Client({
+export const client=new Client({
     host: process.env.host,
     user:process.env.user,
     port:5432,

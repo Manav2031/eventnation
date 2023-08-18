@@ -9,4 +9,5 @@ const app:Application=express();
 
 app.get('/', (req: any, res: any) => res.send('Hello World!'))
 app.use('/event',eventRouter);
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

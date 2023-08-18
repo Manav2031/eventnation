@@ -1,4 +1,5 @@
 import {Request,Response} from 'express'
+import {client} from "../model/connect"
 
 export const getAllEvents=(req:Request,res:Response)=>{
     try{
