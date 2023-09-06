@@ -1,9 +1,9 @@
 create database eventDB;
 
-use eventDB;
+\c eventDB;
 
 CREATE TABLE events (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255),
     details VARCHAR(255),
     location VARCHAR(255),
@@ -14,7 +14,7 @@ CREATE TABLE events (
 );
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE,
     email VARCHAR(100) UNIQUE,
     password_hash VARCHAR(100),
@@ -24,11 +24,10 @@ CREATE TABLE users (
 
 
 CREATE TABLE tickets (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     fk_event INTEGER REFERENCES events(id) ON DELETE CASCADE,
     fk_user INTEGER REFERENCES users(id) ON DELETE CASCADE,
     num INTEGER,
     tot_price INTEGER,
     payment_status BOOLEAN
 );
-
