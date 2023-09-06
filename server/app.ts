@@ -7,6 +7,7 @@ dotenv.config({path:'./config.env'})
 const port=5000;
 const app:Application=express();
 
+app.use(express.json());
 app.get('/', (req: any, res: any) => res.send('Hello World!'))
 app.use('/event',eventRouter);
 
