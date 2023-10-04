@@ -12,7 +12,7 @@ export const isAuthenticated = async(req:any,res:any,next:NextFunction)=>{
                 const key = process.env.TOKEN_SECRET || 'default_secret_key';
                 const decoded=jwt.verify(token,key);
     
-               
+                console.log(decoded);
     
                 next()
             }
