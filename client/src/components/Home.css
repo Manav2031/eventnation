@@ -1,21 +1,30 @@
+
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Permanent+Marker&family=Ubuntu:wght@300;400&family=Young+Serif&display=swap');
+
+
+
+
 /* Home.css */
 
 /* Navbar styling */
-.navbar-brand {
+/* .navbar-brand {
   font-weight: bold;
-}
+} */
 
 /* Carousel styling */
-.carousel-inner {
-  max-width: 800px; /* Set your desired width */
-  margin: 0 auto; /* Center the carousel */
-}
+/* .carousel-inner {
+  max-width: 800px; 
+  margin: 0 auto;
+} */
 
-.carousel-item {
+/* .carousel-item {
   position: relative;
-}
+} */
 
-.carousel-caption {
+/* .carousel-caption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -24,31 +33,31 @@
   color: white;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-}
+} */
 
 
-.carousel-caption h5 {
+/* .carousel-caption h5 {
   font-family: 'Castoro Titling', sans-serif;
-}
+} */
 
-.carousel-caption p {
+/* .carousel-caption p {
   font-family: 'Dancing Script', cursive;
-}
+} */
 /* Carousel styling */
-#carouselExampleInterval {
-  max-width: 800px; /* Set your desired width */
-  margin: 0 auto; /* Center the carousel */
+/* #carouselExampleInterval {
+  max-width: 800px; 
+  margin: 0 auto; 
   box-shadow: 0px 0px 7px 2px grey;
-}
+} */
 
 /* Container styling */
-.container {
+/* .container {
   margin-top: 4rem;
 }
 .container {
   text-align: center;
   margin-top: 2rem;
-}
+} 
 
 .container h1 {
   font-size: 2.5rem;
@@ -69,9 +78,10 @@
 .container p {
   font-size: 1.2rem;
 }
+*/
 
 /* Card styling */
-.card {
+/* .card {
   border: none;
   box-shadow: 0px 0px 7px 2px grey;
 }
@@ -87,5 +97,524 @@
 
 .card-text {
   font-size: 1.2rem;
+} */
+
+
+
+
+.hero
+{
+    background-image:url("https://i.postimg.cc/SsrhwRj6/bg2.png");
+    height:700px;
+    width:100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    position: relative;
+    /* display: flex; */
+    /* align-items: flex-end;
+    justify-content: center; */
 }
 
+.down
+{
+  position: absolute;
+  bottom:0;
+  height:5rem;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+
+}
+
+.content
+{
+  position:absolute;
+  right:3rem;
+  top:10rem;
+  display: flex;
+  flex-direction: column;
+}
+.asdfg
+{
+  background-color: transparent; 
+  background-image: url("https://i.postimg.cc/PrdZ75sN/imageedit-10-6168306013.png");
+/* background-position: center; */
+padding: 32px 35px 14px 38px;
+background-repeat: no-repeat;
+/* background-size:  150px 10px; */
+border: none;
+position: absolute;
+top: 70%;
+right: 15%;
+font-weight: 700;
+font-size: 25px;
+text-shadow: 3px 3px 5px rgb(187, 189, 182);
+
+}
+
+
+.content h1
+{
+  color: black;
+  font-weight: 400px;
+  font-size: 6.2rem;
+  font-family: 'Permanent Marker', cursive;
+  padding-bottom: 2rem;
+  text-shadow: 3px 3px 20px #0dbdba,
+    -2px 1px 30px #ff99cc;
+ 
+}
+.cont
+{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.c
+{
+  background: rgb(2,60,59);
+background: linear-gradient(90deg, rgba(2,60,59,1) 40%, rgb(11 217 211) 100%, rgba(255,255,255,1) 100%);
+  height:12rem;
+  width:16%;
+  display:flex;
+  flex-direction: column;
+  gap:1.3rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  border: 2px solid white;
+  border-radius: 20px;
+
+}
+.c:hover
+{
+  scale: 1.1;
+
+}
+
+.icons
+{
+  height:27%;
+  width:27%;
+}
+
+
+
+
+
+
+.content p
+{
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  left:4rem;
+  line-height: 2.6rem;
+}
+.content span
+{
+  color: rgb(19, 220, 220);
+}
+
+
+
+.elist
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:10rem;
+  background: rgb(16,124,120);
+background: radial-gradient(circle, rgba(16,124,120,1) 55%, rgba(130,187,185,1) 100%, rgba(255,255,255,1) 100%);
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+}
+.elist p
+{
+  font-size: 2rem;
+  font-weight: bolder;
+  font-family: 'Ubuntu', sans-serif;
+}
+.elist p::after
+{
+  content:"";
+  display:block;
+  border-bottom: 4px solid white;
+  width: 30%;
+  text-align: center;
+  margin:2% auto 0;
+}
+
+
+.info
+{
+  display:flex;
+  
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.workdetails
+{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+}
+.workdetails h1
+{
+  font-weight: 800;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.workdetails p
+{
+  font-size: 17px;
+  font-family: 'Permanent Marker', cursive;
+}
+.ticketimg
+{
+  background-color:black;
+  padding:1%;
+}
+
+.logininfo {
+  /* position: absolute;
+  bottom: 0;
+  left: 0; */
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.logininfo svg {
+  position: relative;
+  display: block;
+  width: calc(102% + 1.3px);
+  height: 41px;
+}
+
+.logininfo .shape-fill {
+  fill: #1F6B6B;
+}
+.mainlogininfo
+{
+  height:auto;
+  background-color: #1F6B6B;
+  display: flex;
+ 
+ 
+}
+.eventmanager
+{
+  background-color: #32b6b6;
+  height:50%;
+  width: 80%;
+  margin:4% 2.5% 4% 5%;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+   padding:5%; 
+  gap:10%;
+}
+.enduser
+{
+  background-color:  #32b6b6;
+  height:50%;
+  width: 80%;
+  margin:4% 2.5% 4% 5%;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  padding:5%;
+  gap:10%;
+  position: relative;
+
+}
+.p
+{
+  display: flex;
+}
+.e h1
+{
+  color:rgb(151, 235, 233);
+  font-weight: 500;
+  font-family: cursive;
+  text-align: center;
+  margin: 1%;
+}
+.e h3
+{
+  color:white;
+  font-weight: 800;
+  font-family: cursive;
+}
+.e p
+{
+  text-align: center;
+}
+.e button
+{
+  height: 2rem;
+  border-radius: 10px;
+}
+.e button {
+  align-items: center;
+  /* background-clip: padding-box; */
+  background-color: #1f6b6b;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  /* min-height: 3rem; */
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.e button:hover,
+.e button:focus {
+  background-color: #1f6b6b;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.e button:hover {
+  transform: translateY(-1px);
+}
+
+.e button:active {
+  background-color: #134343;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+
+
+
+
+.ty
+{
+
+
+  color: #000;
+  width: 30%;
+}
+.qwe
+{
+  display: flex;
+  flex-direction: column;
+}
+.bglogin
+{
+  width: 50%;
+}
+.bglogin img
+{
+  width: 50vw;
+}
+
+
+
+.footer-distributed{
+	background: #0a2727;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #2bb3b3;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  white;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #222;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #275c5c;
+	color: white;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: white;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  lightseagreen;
+	text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: white;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  white;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
