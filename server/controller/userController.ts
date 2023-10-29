@@ -1,13 +1,13 @@
 import express, { Request, Response, Application, urlencoded } from 'express';
 import jwt from "jsonwebtoken"
-import {generateUserToken} from '../middleware/userMiddleware'
+const {generateUserToken}=require("../middleware/userMiddleware")
 import bcrypt from 'bcryptjs';
 import {client} from '../model/connect';
 import { QueryResult } from 'pg';
 
 
 // Function to handle user signup
-export const SignUserUp = async (req: any, res: any) => {
+exports.SignUserUp = async (req: any, res: any) => {
     // SQL query to insert user details into the 'users' table in the database
 
     if(!req.body.full_name || !req.body.password || !req.body.email || !req.body.username){
@@ -57,7 +57,7 @@ export const SignUserUp = async (req: any, res: any) => {
     }
     }
   };
-export const SignUserIn = async (req: any, res: any) => {
+exports.SignUserIn = async (req: any, res: any) => {
     try {
         if(!req.body.email || !req.body.password){
             res.status(401).json({error:"Fill all the fields"});
@@ -67,12 +67,12 @@ export const SignUserIn = async (req: any, res: any) => {
         const text = `select * from users where email='${email}';`;
         console.log(text);
         const data: QueryResult<any> = await client.query(text);
-        console.log(data.rows[0])
+        // console.log(data.rows[0])
         if (data.rowCount === 1) {
             const auth =await bcrypt.compare(req.body.password, data.rows[0].password_hash);
             if (auth) {
-                const token = await generateUserToken(data.rows[0].user_id);
                 const user = data.rows[0];
+                const token = await generateUserToken(data.rows[0].id);
                 delete user.password;
                 return res.json({
                     token: token,
@@ -91,11 +91,11 @@ export const SignUserIn = async (req: any, res: any) => {
     }
 }
 
-export const getMe=async(req:any,res:Response)=>{
-    res.status(200).send("Hello")
+exports.getMe=async(req:any,res:Response)=>{
+    res.status(200).send(req.user)
 }
 
-export const UserLogout = async (req: any, res: any) => {
+exports.UserLogout=async(req: any, res: any)=>{
   
     if (!req.token) {
         return res.status(401).json({ error: "You are already logged out" });
@@ -116,4 +116,3 @@ export const UserLogout = async (req: any, res: any) => {
 }
 
 
-module.exports = { SignUserUp, SignUserIn, UserLogout };
