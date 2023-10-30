@@ -141,6 +141,8 @@
 /* background-position: center; */
 padding: 32px 35px 14px 38px;
 background-repeat: no-repeat;
+/* color: black; */
+text-decoration: none;
 /* background-size:  150px 10px; */
 border: none;
 position: absolute;
@@ -286,6 +288,7 @@ background: radial-gradient(circle, rgba(16,124,120,1) 55%, rgba(130,187,185,1) 
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  /* height:100vh; */
 }
 
 .logininfo svg {

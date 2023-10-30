@@ -12,13 +12,14 @@ import { BsPeopleFill} from "react-icons/bs";
 import { FaHospitalUser } from "react-icons/fa6";
 import {BsFacebook } from "react-icons/bs";
 
-import {FaTwitterSquare } from "react-icons/fa";
-import {BsLinkedin } from "react-icons/bs";
-import {FaGooglePlay} from "react-icons/fa";
-import {AiFillInstagram} from "react-icons/ai";
-import {BiSolidMap} from "react-icons/bi";
-import {BsFillTelephoneFill } from "react-icons/bs";
-import {MdEmail } from "react-icons/md";
+// import {FaTwitterSquare } from "react-icons/fa";
+// import {BsLinkedin } from "react-icons/bs";
+// import {FaGooglePlay} from "react-icons/fa";
+// import {AiFillInstagram} from "react-icons/ai";
+// import {BiSolidMap} from "react-icons/bi";
+// import {BsFillTelephoneFill } from "react-icons/bs";
+// import {MdEmail } from "react-icons/md";
+// import { Link } from 'react-router-dom';
 
 
 
@@ -104,7 +105,8 @@ const HomePage=() =>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seize the <span>Moment</span> "</p>
           
         </div>
-        <button className="asdfg">Browse Events</button>
+        {/* <Link className="asdfg" to="/event-details">Browse Events</Link> */}
+        <button className="asdfg" >Browse Events</button>
         <div className='down'>
         </div>
       </div>
