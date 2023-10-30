@@ -104,16 +104,7 @@ function Dashboard() {
     }
   };
 
-  const handleEditClick = (event) => {
-    setEditingEvent(event);
-
-    setEditedFields({
-      title: event.title,
-      description: event.description,
-      date: event.date,
-      venue: event.venue,
-    });
-  };
+ 
 
   const handleFieldChange = (field, value) => {
     setEditedFields({
@@ -184,6 +175,7 @@ function Dashboard() {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           event_id: event_id,
@@ -192,7 +184,7 @@ function Dashboard() {
 
       if (response.ok) {
         setScheduledEvents((prevScheduledEvents) =>
-          prevScheduledEvents.filter((ticket) => ticket.event?.id !== event_id)
+          prevScheduledEvents.filter((ticket) => ticket?.id !== event_id)
         );
 
         window.location.reload();
@@ -236,42 +228,7 @@ function Dashboard() {
           ) : (
             userEvents.map((event) => (
               <div key={event.id} className="event-item">
-                {event === editingEvent ? (
-                  <>
-                    <input
-                      type="text"
-                      value={editedFields.name || ""}
-                      onChange={(e) =>
-                        handleFieldChange("title", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      placeholder="Details"
-                      value={editedFields.details || ""}
-                      onChange={(e) =>
-                        handleFieldChange("description", e.target.value)
-                      }
-                    />
-                    <input
-                      type="Date"
-                      placeholder="Date"
-                      value={editedFields.date || ""}
-                      onChange={(e) =>
-                        handleFieldChange("date", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={editedFields.location || ""}
-                      onChange={(e) =>
-                        handleFieldChange("venue", e.target.value)
-                      }
-                    />
-                    <button onClick={handleSaveClick}>Save</button>
-                  </>
-                ) : (
-                  <>
+  
                     <h3>{event.name ? event.name : "No Title"}</h3>
                     <p className="first-p">
                       {event.details ? event.details : "No Description"}
@@ -293,12 +250,12 @@ function Dashboard() {
                     </p>
                     
                     <div className="but-div">
-                      <button
+                      {/* <button
                         className="Edit"
                         onClick={() => handleEditClick(event)}
                       >
                         Edit
-                      </button>
+                      </button> */}
                       <button
                         className="Delete"
                         onClick={() => handleDeleteClick(event.id)}
@@ -306,8 +263,6 @@ function Dashboard() {
                         Delete
                       </button>
                     </div>
-                  </>
-                )}
               </div>
             ))
           )}
