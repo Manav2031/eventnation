@@ -1,7 +1,7 @@
 import { NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { client } from "../model/connect";
-exports.isAuthenticated = async (req: any, res: any, next: any) => {
+export const isAuthenticated = async (req: any, res: any, next: any) => {
   try {
     let query = "select * from user_token where  token= $1"; // changed user_token_id to token for searching
     const authHeader = req.header("Authorization");

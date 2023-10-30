@@ -15,7 +15,7 @@ exports.bookTicket = async (req: any, res: any) => {
     const update = `UPDATE events SET available_tickets=available_tickets-${req.body.num} ,total_collection=total_collection+${req.body.price} where id=${req.body.event_id};`;
     const up = await client.query(update);
     console.log(data);
-    res.status(201).send("Ticket Booked successfully");
+    res.status(201).json({message:"Ticket Booked successfully"});
   } catch (e: any) {
     res.status(401).send(e.message);
   }

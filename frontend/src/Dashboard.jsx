@@ -43,16 +43,17 @@ function Dashboard() {
 
   const fetchUserEvents = async (token) => {
     try {
-      const response = await fetch("https://ticket-a8ez.onrender.com/event", {
+      const response = await fetch("http://localhost:5000/event/created", {
+        method:"POST",
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
 
       if (response.ok) {
         const data = await response.json();
-        setUserEvents(data.userEvents);
+        setUserEvents(data);
       } else {
         console.error("Failed to fetch user events.");
       }
@@ -63,10 +64,10 @@ function Dashboard() {
 
   const fetchUserData = async (token) => {
     try {
-      const response = await fetch("https://ticket-a8ez.onrender.com/user", {
+      const response = await fetch("http://localhost:5000/auth/me", {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       if (response.ok) {
@@ -83,15 +84,17 @@ function Dashboard() {
 
   const fetchScheduledEvents = async (token) => {
     try {
-      const response = await fetch("https://ticket-a8ez.onrender.com/ticket/user", {
+      const response = await fetch("http://localhost:5000/event/booked", {
+        method:"POST",
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
-        },
+        }
+      
       });
       if (response.ok) {
         const data = await response.json();
-        setScheduledEvents(data.userTickets);
+        setScheduledEvents(data);
         console.log(data);
       } else {
         console.error("Error fetching scheduled events");
@@ -122,7 +125,7 @@ function Dashboard() {
   const handleSaveClick = async () => {
     try {
       const response = await fetch(
-        `https://ticket-a8ez.onrender.com/event/${editingEvent._id}`,
+        `http://localhost:5000/event/${editingEvent.id}`,
         {
           method: "PUT",
           headers: {
@@ -154,7 +157,7 @@ function Dashboard() {
 
   const handleDeleteClick = async (eventId) => {
     try {
-      const response = await fetch(`https://ticket-a8ez.onrender.com/event/${eventId}`, {
+      const response = await fetch(`http://localhost:5000/event/${eventId}`, {
         method: "DELETE",
         headers: {
           Authorization: `${token}`,
@@ -175,18 +178,21 @@ function Dashboard() {
     }
   };
 
-  const handleCancelEventClick = async (eventId) => {
+  const handleCancelEventClick = async (event_id) => {
     try {
-      const response = await fetch(`https://ticket-a8ez.onrender.com/ticket/${eventId}`, {
-        method: "DELETE",
+      const response = await fetch(`http://localhost:5000/ticket/unbook`, {
+        method: "POST",
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify({
+          event_id: event_id,
+        })
       });
 
       if (response.ok) {
         setScheduledEvents((prevScheduledEvents) =>
-          prevScheduledEvents.filter((ticket) => ticket.event?.id !== eventId)
+          prevScheduledEvents.filter((ticket) => ticket.event?.id !== event_id)
         );
 
         window.location.reload();
@@ -218,7 +224,7 @@ function Dashboard() {
         
             <button onClick={openUserProfileModal} className="profile-button">My Profile</button>
 
-          <span>{userData.name}</span>
+          <span>{userData.username}</span>
         </div>
       </nav>
 
@@ -234,20 +240,22 @@ function Dashboard() {
                   <>
                     <input
                       type="text"
-                      value={editedFields.title || ""}
+                      value={editedFields.name || ""}
                       onChange={(e) =>
                         handleFieldChange("title", e.target.value)
                       }
                     />
                     <input
                       type="text"
-                      value={editedFields.description || ""}
+                      placeholder="Details"
+                      value={editedFields.details || ""}
                       onChange={(e) =>
                         handleFieldChange("description", e.target.value)
                       }
                     />
                     <input
-                      type="text"
+                      type="Date"
+                      placeholder="Date"
                       value={editedFields.date || ""}
                       onChange={(e) =>
                         handleFieldChange("date", e.target.value)
@@ -255,7 +263,7 @@ function Dashboard() {
                     />
                     <input
                       type="text"
-                      value={editedFields.venue || ""}
+                      value={editedFields.location || ""}
                       onChange={(e) =>
                         handleFieldChange("venue", e.target.value)
                       }
@@ -264,19 +272,26 @@ function Dashboard() {
                   </>
                 ) : (
                   <>
-                    <h3>{event.title ? event.title : "No Title"}</h3>
+                    <h3>{event.name ? event.name : "No Title"}</h3>
                     <p className="first-p">
-                      {event.description ? event.description : "No Description"}
+                      {event.details ? event.details : "No Description"}
                     </p>
                     <p className="second-p">
                       On {event.date ? formatDate(event.date) : "No Date"}
                     </p>
-                    <p className="third-p">
-                      Venue : {event.venue ? event.venue : "No Venue"}
+                    <p className="second-p">
+                      total collection : $ {event.total_collection ? event.total_collection : "No Price"}
+                    </p>
+                    <p className="second-p">
+                      tickets available :  {event.available_tickets ? event.available_tickets : "No Price"}
                     </p>
                     <p className="third-p">
-                      price : $ {event.price ? event.price : "No Price"}
+                      Venue : {event.location ? event.location : "No Venue"}
                     </p>
+                    <p className="third-p">
+                      price : $ {event.ticket_price ? event.ticket_price : "No Price"}
+                    </p>
+                    
                     <div className="but-div">
                       <button
                         className="Edit"
@@ -286,7 +301,7 @@ function Dashboard() {
                       </button>
                       <button
                         className="Delete"
-                        onClick={() => handleDeleteClick(event._id)}
+                        onClick={() => handleDeleteClick(event.id)}
                       >
                         Delete
                       </button>
@@ -304,18 +319,18 @@ function Dashboard() {
             <p>No scheduled events available.</p>
           ) : (
             scheduledEvents.map((ticket) => (
-              <div key={ticket.event?.id} className="event-item">
+              <div key={ticket?.id} className="event-item">
                 <p>ticket</p>
-                <h3>{ticket.event?.title}</h3>
-                <p className="first-p">{ticket.event?.description}</p>
+                <h3>{ticket?.name}</h3>
+                <p className="first-p">{ticket?.details}</p>
                 <p className="second-p">
-                  {ticket.event?.date
-                    ? formatDate(ticket.event.date)
+                  {ticket?.date
+                    ? formatDate(ticket.date)
                     : "No Date"}
                 </p>
                 <button
                   className="Cancel"
-                  onClick={() => handleCancelEventClick(ticket._id)}
+                  onClick={() => handleCancelEventClick(ticket.id)}
                 >
                   Cancel Event
                 </button>

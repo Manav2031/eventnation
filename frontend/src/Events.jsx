@@ -56,14 +56,21 @@ function Events() {
   };
 
 // Function to handle booking an event
-const handleBookEvent = async (eventId) => {
+const handleBookEvent = async (event) => {
     try {
       // Fetch the user's booked tickets
-      const response = await fetch(`https://ticket-a8ez.onrender.com/ticket/user`, {
+      const response = await fetch(`http://localhost:5000/ticket/book`, {
+        method:"POST",
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          event_id: event.id,
+          num: 1,
+          price: event.ticket_price
+        })
+        
       });
   
       if (!response.ok) {
@@ -72,28 +79,7 @@ const handleBookEvent = async (eventId) => {
       }
   
       const data = await response.json();
-      const userTickets = data.userTickets;
-  
-      const isAlreadyBooked = userTickets.some((ticket) => ticket.event._id === eventId);
-  
-      if (isAlreadyBooked) {
-        setShowAlreadyBookedPopup(true);
-      } else {
-        const bookResponse = await fetch(`https://ticket-a8ez.onrender.com/ticket`, {
-          method: "POST",
-          headers: {
-            Authorization: `${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ eventId }),
-        });
-  
-        if (bookResponse.ok) {
-          setShowSuccessPopup(true);
-        } else {
-          console.error("Failed to book event.");
-        }
-      }
+      alert(data.message)
     } catch (error) {
       console.error("Error during event booking:", error);
     }
@@ -130,7 +116,7 @@ const handleBookEvent = async (eventId) => {
             <p>Price: ${event.ticket_price}</p>
             <button
               className="book-button"
-              onClick={() => handleBookEvent(event._id)}
+              onClick={() => handleBookEvent(event)}
             >
               Book
             </button>

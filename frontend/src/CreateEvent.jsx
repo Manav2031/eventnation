@@ -3,10 +3,11 @@ import "./CreateEvent.css";
 import { Link } from "react-router-dom";
 
 function CreateEvent() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
+  const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
-  const [venue, setVenue] = useState("");
+  const [location, setLocation] = useState("");
+  const [num,setTicket]=useState(0);
   const [price, setPrice] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,13 +19,13 @@ function CreateEvent() {
     try {
       setIsLoading(true);
 
-      const response = await fetch("https://ticket-a8ez.onrender.com/event/create", {
+      const response = await fetch("http://localhost:5000/event", {
         method: "POST",
         headers: {
           Authorization: `${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, description, date, venue, price }),
+        body: JSON.stringify({ name, details, date, location,num, price }),
       });
 
       if (response.ok) {
@@ -64,15 +65,15 @@ function CreateEvent() {
         <form onSubmit={handleCreateEvent}>
           <input
             type="text"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Event Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Details"
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
             required
           ></textarea>
           <input
@@ -84,9 +85,9 @@ function CreateEvent() {
           />
           <input
             type="text"
-            placeholder="Venue"
-            value={venue}
-            onChange={(e) => setVenue(e.target.value)}
+            placeholder="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
             required
           />
           <input
@@ -94,6 +95,13 @@ function CreateEvent() {
             placeholder="Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+           <input
+            type="number"
+            placeholder="Number of tickets"
+            value={num}
+            onChange={(e) => setTicket(e.target.value)}
             required
           />
           {isLoading ? (
