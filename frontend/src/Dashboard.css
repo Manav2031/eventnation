@@ -1,6 +1,7 @@
 Dashboard container
 .dashboard {
     padding: 20px;
+   
 }
 
 .navbar {
@@ -47,13 +48,20 @@ Dashboard container
 
 /* Dashboard content */
 .dashboard-content {
+    position: absolute;
+    top:80px ;
+    right: 1px;
+    left: 1px;
+
     display: flex;
+   
 }
 
 /* Left div (User-created events) */
 .left-div {
     flex: 70%; /* Adjust the width as needed */
     padding: 20px;
+    
 }
 
 /* Right div (Scheduled events) */
@@ -68,10 +76,11 @@ Dashboard container
 
 /* Event item */
 .event-item {
-    background-color: #f2f2f2; /* Event item background color */
+    background-color: #61e4e0; /* Event item background color */
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
+
 }
 
 .event-item h3 {
@@ -285,3 +294,249 @@ Dashboard container
     background-color: #0e9a6c; /* Darker color on hover */
     transform: scale(1.05); /* Slight zoom effect on hover */
 }
+
+
+/* navbar css */
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500&family=Josefin+Sans:ital,wght@0,400;0,700;1,400&family=Kaushan+Script&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.navbar
+{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    width:90vw;
+    /* height:10vh; */
+ 
+    margin:0 auto;
+    padding:10px 60px 10px 40px;
+    background: rgba(211, 201, 234, 0);
+    background:rgba(248, 147, 31, 0);
+    background:rgb(165, 123, 74);
+    flex-basis: 50px;
+    border-radius:10%;
+    background: transparent;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+
+    position: absolute;
+    top:0;
+    overflow-x: hidden;
+     
+}
+.logo{
+    display:flex;
+}
+li
+{
+    list-style: none;
+}
+.links a
+{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    font-size: 1rem;
+}
+.links a:hover
+{
+    color:orange;
+} 
+ .navbar .logo a{
+    font-size:1.5rem ;
+    font-weight: bold;
+    font-family: 'Kaushan Script', cursive;
+    color:#2a8e8b;
+    text-decoration: none;
+ }
+ .navbar .logo a:hover{
+    font-size:1.5rem ;
+    font-weight: bold;
+    text-decoration: none;
+    color:#2a8e8b;
+ }
+ .navbar .links
+ {
+    display:flex;
+    gap:2rem;
+ }
+ .navbar .toggle-btn
+ {
+    color:white;
+    font-size: 1.5rem;
+    cursor:pointer;
+    display:none;
+ } 
+
+
+
+
+.navbar li
+{
+    list-style: none;
+    padding:0 20px;
+    position:relative;
+}
+.navbar li a
+{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:18px;
+    font-weight:bolder;
+    background-color: #08a1b8;
+    border-radius: 20px;
+    padding:10px;
+
+    
+}
+.navbar li a:hover,
+.navbar li a.active
+{
+    color:#013433;
+} 
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+}
+.action-btn{
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6dae12;
+    font-size: 1.2rem;
+    transition: .5s;
+    overflow: hidden;
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.action-btn:hover{
+    background-color: #2d4f0f;
+    color: #98dd2a;
+    box-shadow: 0 0 5px #2d4f0f,
+                0 0 25px#2d4f0f,
+                0 0 50px #2d4f0f,
+                0 0 300px #2d4f0f;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+    text-decoration: none;
+}
+.action-btn:first-child{
+    filter: hue-rotate(225deg);
+}
+.action-btn:last-child{
+    filter: hue-rotate(90deg);
+}
+.action-btn span{
+    position: absolute;
+    display: block;
+}
+span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,transparent,#2d4f0f);
+    animation: animate1 1s infinite;
+}
+@keyframes animate1{
+    0%{
+        left:-100%;
+    }
+    100%{
+        left: 100%;
+    }
+}
+.action-btn span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#2d4f0f);
+    animation: animate2 1s infinite;
+    animation-delay: .25s;
+}
+@keyframes animate2{
+    0%{
+        top:-100%;
+    }
+    100%{
+        top: 100%;
+    }
+}
+.action-btn span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(270deg,transparent,#2d4f0f);
+    animation: animate3 1s infinite;
+    animation-delay: .5s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+.action-btn span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#2d4f0f);
+    animation: animate4 1s infinite;
+    animation-delay: .75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    100%{
+        bottom: 100%;
+    }
+}
+
+.navbar li a
+{
+    --b: 1px;   /* border thickness */
+    --s: .15em; /* size of the corner */
+    --c: #42cdc8;
+    
+    padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+    /* padding:10px 20px; */
+    color: var(--c);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #fbfbfb00;
+    outline-offset: .2em;
+  }
+  .navbar li a:hover,
+  .navbar li a:focus-visible{
+    --_p: 0px;
+    outline-color: var(--c);
+    outline-offset: .05em;
+  }
+  .navbar li a:active {
+    background: var(--c);
+    color: #ffffff;
+  }
+  
+
+  .navbar li a {
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    margin: .1em;
+  }

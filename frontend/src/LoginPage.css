@@ -1,20 +1,33 @@
 /* login.css */
 
 /* Center the login card */
+
 .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
     height: 100vh;
-    background-color: #f0f0f0;
-}
+    background-image: url("https://i.ibb.co/jkMp5Dr/low-poly-grid-haikei.png");
 
+}
+.fg
+{
+    border-radius: 30px;
+}
+.hj
+{
+    color: white;
+}
+.jk
+{
+    overflow: hidden;
+}
 /* Login card styles (reusing signup-card styles) */
 .signup-card {
-    background-color: #ffffff;
+    background-color: #6ff1f1;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
@@ -44,7 +57,8 @@
 
 /* Password input container (reusing password-input styles) */
 .password-input {
-    position: relative; /* To position the "Show/Hide" button */
+    position: relative;
+   /* To position the "Show/Hide" button */
 }
 
 /* Password input field (reusing password-input styles) */
@@ -54,6 +68,7 @@
     border: none;
     border-bottom: 1px solid #ccc; /* Bottom line style */
     margin-bottom: 15px;
+    
     transition: border-bottom 0.3s ease, transform 0.3s ease; /* Transition for hover effect */
 }
 
@@ -71,7 +86,7 @@
 
 /* Signup button styles (reusing signup button styles) */
 .signup-card form button {
-    background-color: #3498db;
+    background-color: #217272;
     color: #fff;
     border: none;
     border-radius: 25px; /* Rounded border */
@@ -82,7 +97,7 @@
 
 /* Signup button hover effect (reusing signup button hover styles) */
 .signup-card form button:hover {
-    background-color: #2980b9; /* Darker background color on hover */
+    background-color: #174747; /* Darker background color on hover */
     border-radius: 35px; /* Curved border on hover */
 }
 
