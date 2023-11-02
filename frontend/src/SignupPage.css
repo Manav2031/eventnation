@@ -1,5 +1,16 @@
 /* signup.css */
-
+.fg
+{
+    border-radius: 30px;
+}
+.hj
+{
+    color: white;
+}
+.jk
+{
+    overflow: hidden;
+}
 /* Center the signup card */
 .signup-container {
     display: flex;
@@ -34,6 +45,7 @@
     border-bottom: 1px solid #ccc; /* Bottom line style */
     margin-bottom: 15px;
     transition: border-bottom 0.3s ease, transform 0.3s ease; /* Transition for hover effect */
+    
 }
 
 /* Input hover effect */

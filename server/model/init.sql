@@ -18,27 +18,18 @@ CREATE TABLE user_token(
     token VARCHAR(255)
 );
 
-CREATE TABLE admin(
-    id INTEGER PRIMARY KEY,
-    fk_user INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    
-);
 
-CREATE TABLE event_manager(
-    id INTEGER PRIMARY KEY,
-    fk_user INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    bio VARCHAR(1000),
-    organization VARCHAR(255)
-);
+
 
 CREATE TABLE events (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255),
+	date date,
     details VARCHAR(255),
     location VARCHAR(255),
-    ticket_price INTEGER
-    available_tickets INTEGER
-    created_by INTEGER REFERENCES event_manager(id),
+    ticket_price INTEGER,
+    available_tickets INTEGER,
+    created_by INTEGER REFERENCES users(id),
     total_collection INTEGER
 );
 

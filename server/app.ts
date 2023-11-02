@@ -1,4 +1,5 @@
 import express, { Request, Response, Application } from "express";
+// const express= require("express")
 require("./model/connect");
 import dotenv from "dotenv";
 import cors from "cors"

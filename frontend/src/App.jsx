@@ -5,13 +5,17 @@ import LoginPage from './LoginPage';
 import Dashboard from './Dashboard';
 import Events from './Events';
 import CreateEvent from './CreateEvent';
+import Home from './Home';
+
+
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path="/" element={<SignupPage />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/signup" element={<SignupPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path='/dashboard' element={<Dashboard/>}/>
                     <Route path='/events' element={<Events/>}/>
